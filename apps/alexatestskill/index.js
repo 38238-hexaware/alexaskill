@@ -37,7 +37,7 @@ if(zodiac){
 var horoscope=require('./horoscope')(zodiac);
 var sign=horoscope.horoscope.sign;
 var todaysh=horoscope.horoscope.horoscope;
-    response.say("Your sign "+sign+" today predication fortells "+todaysh);
+    response.say("Your sign "+sign+" today predication fortells "+todaysh+". Thanks have a nice day");
 }
 	else
 	{
