@@ -41,7 +41,7 @@ var todaysh=horoscope.horoscope.horoscope;
 }
 	else
 	{
-	response.say("Can i know your zodiac sign?");	
+	response.say("Can i know your zodiac sign, to say your today forecast?");	
 	}
   }
 );
