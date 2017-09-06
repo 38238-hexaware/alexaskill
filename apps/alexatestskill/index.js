@@ -33,7 +33,10 @@ app.intent('sayNumber',
 );
 app.intent('ZODIACINTENT',function(request,response) {
     var zodiac = request.slot('GetZodiacIntent');
-    response.say("Your zodiac is "+zodiac+" Thank You!!! have a good day");
+var horoscope=require('./horoscope')(zodiac);
+var sign=horoscope.horoscope.sign;
+var todaysh=horoscope.horoscope.horoscope;
+    response.say("Your sign "+sign+" today predication fortells "+todaysh);
   }
 );
 module.exports = app;
