@@ -31,13 +31,17 @@ app.intent('sayNumber',
     response.say("You asked for the number "+number);
   }
 );
+app.intent('Thankyou',function(request,response) {
+response.say("Thanks have a nice day");	
+ }
+);	
 app.intent('ZODIACINTENT',function(request,response) {
     var zodiac = request.slot('GetZodiacIntent');
 if(zodiac){
 var horoscope=require('./horoscope')(zodiac);
 var sign=horoscope.horoscope.sign;
 var todaysh=horoscope.horoscope.horoscope;
-    response.say("Your sign "+sign+" today predication fortells "+todaysh+". Thanks have a nice day");
+    response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you want to know any other horoscope?");
 }
 	else
 	{
