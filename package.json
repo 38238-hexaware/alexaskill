@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "alexa-app-server": "^3.0.1"
+    "alexa-app-server": "^3.0.1",
+    "request-sync": "^1.0.0"
   }
 }
