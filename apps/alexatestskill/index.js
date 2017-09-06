@@ -31,5 +31,9 @@ app.intent('sayNumber',
     response.say("You asked for the number "+number);
   }
 );
-
+app.intent('ZODIACINTENT',function(request,response) {
+    var zodiac = request.slot('GetZodiacIntent');
+    response.say("Your zodiac is "+zodiac+" Thank You!!! have a good day");
+  }
+);
 module.exports = app;
