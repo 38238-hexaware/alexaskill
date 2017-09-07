@@ -40,6 +40,7 @@ app.intent('ZODIACINTENT',function(request,response) {
     var zodiac = request.slot('GetZodiacIntent');
 if(zodiac){
  request('http://widgets.fabulously40.com/horoscope.json?sign='+zodiac, function (error, response, body) {
+console.log(JSON.stringify(body));	 
 var horoscope=JSON.parse(body); // Print the HTML for the Google homepage.
 var sign=horoscope.horoscope.sign;
 var todaysh=horoscope.horoscope.horoscope;
