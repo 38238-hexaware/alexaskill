@@ -44,6 +44,7 @@ fetch('http://widgets.fabulously40.com/horoscope.json?sign=capricorn')
     // console.log(JSON.stringify(res.text()));
        return res.text();
     }).then(function(body) {
+	console.log(JSON.stringify(body));
        var horoscope=JSON.parse(body);
 	var sign=horoscope.horoscope.sign;
 var todaysh=horoscope.horoscope.horoscope;
