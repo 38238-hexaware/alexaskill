@@ -45,7 +45,7 @@ if(zodiac){
 fetch('http://widgets.fabulously40.com/horoscope.json?sign=capricorn')
     .then(function(res) {
         console.log(res);
- response.say(res).shouldEndSession( false );
+ response.say(JSON.stringify(res)).shouldEndSession( false );
 
     }).then(function(body) {
         console.log(body);
