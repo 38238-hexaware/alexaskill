@@ -45,6 +45,7 @@ var options = { method: 'GET',
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
+console.log(JSON.stringify(body));
 var horoscope=JSON.parse(body);	
 var sign=horoscope.horoscope.sign;
 var todaysh=horoscope.horoscope.horoscope;
