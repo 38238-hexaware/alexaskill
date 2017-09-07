@@ -51,10 +51,10 @@ fetch('http://widgets.fabulously40.com/horoscope.json?sign='+zodiac)
 	console.log(horoscope.horoscope.sign+"=>"+horoscope.horoscope.horoscope);
 	sign=horoscope.horoscope.sign;
 todaysh=horoscope.horoscope.horoscope;
-response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false );
+retun response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();
     });	
 
- return response.say('srini').send();
+ //eturn response.say('srini').send();
 //  request('http://widgets.fabulously40.com/horoscope.json?sign='+zodiac, function (error, response, body) {
 // console.log(JSON.stringify(body));	 
 // var horoscope=JSON.parse(body); // Print the HTML for the Google homepage.
