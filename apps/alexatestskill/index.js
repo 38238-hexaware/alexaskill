@@ -51,7 +51,7 @@ fetch('http://widgets.fabulously40.com/horoscope.json?sign='+zodiac)
 	console.log(horoscope.horoscope.sign+"=>"+horoscope.horoscope.horoscope);
 	sign=horoscope.horoscope.sign;
 todaysh=horoscope.horoscope.horoscope;
-retun response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();
+return response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();
     });	
 
  //eturn response.say('srini').send();
