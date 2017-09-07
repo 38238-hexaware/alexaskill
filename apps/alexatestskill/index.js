@@ -39,8 +39,8 @@ response.say("Thanks have a nice day");
 app.intent('ZODIACINTENT',function(request,response) {
     var zodiac = request.slot('GetZodiacIntent');
 	var horoscope,sign,todaysh;
+		response.shouldEndSession( false );
 if(zodiac){
-	response.shouldEndSession( false );
 fetch('http://widgets.fabulously40.com/horoscope.json?sign='+zodiac)
     .then(function(res) {
     // console.log(JSON.stringify(res.text()));
@@ -51,10 +51,10 @@ fetch('http://widgets.fabulously40.com/horoscope.json?sign='+zodiac)
 	console.log(horoscope.horoscope.sign+"=>"+horoscope.horoscope.horoscope);
 	sign=horoscope.horoscope.sign;
 todaysh=horoscope.horoscope.horoscope;
-
+response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false );
     });	
-	setTimeout(function(){ response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false );}, 3000);
 
+ return response.send();
 //  request('http://widgets.fabulously40.com/horoscope.json?sign='+zodiac, function (error, response, body) {
 // console.log(JSON.stringify(body));	 
 // var horoscope=JSON.parse(body); // Print the HTML for the Google homepage.
