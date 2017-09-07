@@ -39,26 +39,10 @@ response.say("Thanks have a nice day");
 app.intent('ZODIACINTENT',function(request,response) {
     var zodiac = request.slot('GetZodiacIntent');
 if(zodiac){
-// var options = { method: 'GET',
-//   url: 'http://widgets.fabulously40.com/horoscope.json',
-//   qs: { sign: zodiac}};
-fetch('http://widgets.fabulously40.com/horoscope.json?sign=capricorn')
-    .then(function(res) {
-        console.log(res);
- response.say('srini').shouldEndSession( false );
-
-    }).then(function(body) {
-	 response.say('srini').shouldEndSession( false );
-        console.log(body);
-    });
-// request(options, function (error, response, body) {
-//   if (error) throw new Error(error);
-// console.log(JSON.stringify(body));
-// var horoscope=JSON.parse(body);	
-// var sign=horoscope.horoscope.sign;
-// var todaysh=horoscope.horoscope.horoscope;
-// response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false );
-// });	
+var horoscope=require('./horoscope')(zodiac);	
+var sign=horoscope.horoscope.sign;
+var todaysh=horoscope.horoscope.horoscope;
+response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false );
 }
 	else
 	{
