@@ -48,6 +48,7 @@ fetch('http://widgets.fabulously40.com/horoscope.json?sign=capricorn')
  response.say('srini').shouldEndSession( false );
 
     }).then(function(body) {
+	 response.say('srini').shouldEndSession( false );
         console.log(body);
     });
 // request(options, function (error, response, body) {
