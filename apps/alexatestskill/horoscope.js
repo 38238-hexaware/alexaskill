@@ -1,4 +1,4 @@
-const request = require('request-sync');
+//const request = require('request-sync');
 // let datares;
 // module.exports = function (sign) {
 //     return JSON.parse(request({
@@ -7,3 +7,4 @@ const request = require('request-sync');
 //     }).body);
 
 // };
+const request = require('request');
