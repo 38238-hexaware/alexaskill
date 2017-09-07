@@ -3,8 +3,8 @@ module.change_code = 1;
 
 var alexa = require( 'alexa-app' );
 var app = new alexa.app( 'test-skill' );
-const request=require('request');
-
+//const request=require('request');
+var fetch = require('node-fetch');
 
 app.launch( function( request, response ) {
 	response.say( 'Welcome, have a good day!!! What would you like to do?' ).reprompt( 'Way to go. You got it to run. Bad ass.' ).shouldEndSession( false );
@@ -39,18 +39,24 @@ response.say("Thanks have a nice day");
 app.intent('ZODIACINTENT',function(request,response) {
     var zodiac = request.slot('GetZodiacIntent');
 if(zodiac){
-var options = { method: 'GET',
-  url: 'http://widgets.fabulously40.com/horoscope.json',
-  qs: { sign: zodiac}};
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-console.log(JSON.stringify(body));
-var horoscope=JSON.parse(body);	
-var sign=horoscope.horoscope.sign;
-var todaysh=horoscope.horoscope.horoscope;
-response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false );
-});	
+// var options = { method: 'GET',
+//   url: 'http://widgets.fabulously40.com/horoscope.json',
+//   qs: { sign: zodiac}};
+fetch('http://widgets.fabulously40.com/horoscope.json?sign=capricorn')
+    .then(function(res) {
+        console.log(res);
+        return res.text();
+    }).then(function(body) {
+        console.log(body);
+    });
+// request(options, function (error, response, body) {
+//   if (error) throw new Error(error);
+// console.log(JSON.stringify(body));
+// var horoscope=JSON.parse(body);	
+// var sign=horoscope.horoscope.sign;
+// var todaysh=horoscope.horoscope.horoscope;
+// response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false );
+// });	
 }
 	else
 	{
