@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "alexa-app-server": "^3.0.1",
-    "request-sync": "^1.0.0"
+    "request-sync": "^1.0.0",
+    "request": "^2.81.0"
   }
 }
