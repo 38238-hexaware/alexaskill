@@ -12,6 +12,7 @@
   "dependencies": {
     "alexa-app-server": "^3.0.1",
     "request-sync": "^1.0.0",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "node-fetch": "^1.7.2"
   }
 }
