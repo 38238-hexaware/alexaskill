@@ -11,6 +11,9 @@
     "url": "git+https://github.com/38238-hexaware/alexatestskill.git"
   },
   "author": "SRINIVASAN V",
+   "dependencies": {
+    "request": "^2.81.0"
+  }
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/38238-hexaware/alexatestskill/issues"
