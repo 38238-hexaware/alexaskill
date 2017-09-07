@@ -3,7 +3,7 @@ module.change_code = 1;
 
 var alexa = require( 'alexa-app' );
 var app = new alexa.app( 'test-skill' );
-const request=new require('request');
+const request=require('request');
 
 
 app.launch( function( request, response ) {
