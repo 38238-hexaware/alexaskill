@@ -41,11 +41,11 @@ if(zodiac){
 var horoscope=require('./horoscope')(zodiac);
 var sign=horoscope.horoscope.sign;
 var todaysh=horoscope.horoscope.horoscope;
-    response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?");
+    response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false );
 }
 	else
 	{
-	response.say("Can i know the zodiac sign, to say today forecast?");	
+	response.say("Can i know the zodiac sign, to say today forecast?").shouldEndSession( false );	
 	}
   }
 );
