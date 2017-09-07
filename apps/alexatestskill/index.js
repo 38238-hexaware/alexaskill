@@ -3,6 +3,7 @@ module.change_code = 1;
 
 var alexa = require( 'alexa-app' );
 var app = new alexa.app( 'test-skill' );
+const request=new require('request');
 
 
 app.launch( function( request, response ) {
@@ -38,10 +39,12 @@ response.say("Thanks have a nice day");
 app.intent('ZODIACINTENT',function(request,response) {
     var zodiac = request.slot('GetZodiacIntent');
 if(zodiac){
-var horoscope=require('./horoscope')(zodiac);
+request('http://www.google.com', function (error, response, body) {
+ var horoscope=require('./horoscope')(zodiac);
 var sign=horoscope.horoscope.sign;
 var todaysh=horoscope.horoscope.horoscope;
-    response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false );
+response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false );
+});
 }
 	else
 	{
