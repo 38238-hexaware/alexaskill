@@ -39,10 +39,17 @@ response.say("Thanks have a nice day");
 app.intent('ZODIACINTENT',function(request,response) {
     var zodiac = request.slot('GetZodiacIntent');
 if(zodiac){
- var horoscope=require('./horoscope')(zodiac);
+var options = { method: 'GET',
+  url: 'http://widgets.fabulously40.com/horoscope.json',
+  qs: { sign: zodiac}};
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+var horoscope=JSON.parse(body);	
 var sign=horoscope.horoscope.sign;
 var todaysh=horoscope.horoscope.horoscope;
 response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false );
+});	
 }
 	else
 	{
