@@ -41,7 +41,7 @@ var zodiac = request.slot('GetZodiacIntent');
 var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
-reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, response, body) {
+return reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, response, body) {
 horoscope=JSON.parse(body);
 //console.log(horoscope.horoscope.sign+"=>"+horoscope.horoscope.horoscope);
 sign=horoscope.horoscope.sign;
