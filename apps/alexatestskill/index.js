@@ -3,7 +3,7 @@ module.change_code = 1;
 
 var alexa = require( 'alexa-app' );
 var app = new alexa.app( 'test-skill' );
-let request = require('request');
+let reqnew = require('request');
 var fetch = require('node-fetch');
 
 app.launch( function( request, response ) {
@@ -41,6 +41,9 @@ app.intent('ZODIACINTENT',function(request,response) {
 	var horoscope,sign,todaysh;
 		response.shouldEndSession( false );
 if(zodiac){
+ reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, response, body) {
+    console.log(JSON.stringify(body));
+    });	
 return  fetch('http://widgets.fabulously40.com/horoscope.json?sign='+zodiac)
     .then(function(res) {
     // console.log(JSON.stringify(res.text()));
