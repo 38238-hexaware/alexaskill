@@ -3,7 +3,7 @@ module.change_code = 1;
 
 var alexa = require( 'alexa-app' );
 var app = new alexa.app( 'test-skill' );
-let reqnew = require('request');
+var reqnew = require('request');
 var fetch = require('node-fetch');
 
 app.launch( function( request, response ) {
@@ -41,12 +41,12 @@ var zodiac = request.slot('GetZodiacIntent');
 var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
-reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, response, body) {
+return  reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, response, body) {
 horoscope=JSON.parse(body);
 //console.log(horoscope.horoscope.sign+"=>"+horoscope.horoscope.horoscope);
 sign=horoscope.horoscope.sign;
 todaysh=horoscope.horoscope.horoscope;
-return  response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();
+response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();
     });	
 // return  fetch('http://widgets.fabulously40.com/horoscope.json?sign='+zodiac)
 //     .then(function(res) {
