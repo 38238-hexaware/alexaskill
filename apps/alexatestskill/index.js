@@ -40,7 +40,7 @@ app.intent('ZODIACINTENT',function(request,response) {
     var zodiac = request.slot('GetZodiacIntent');
 	var horoscope,sign,todaysh;
 		response.shouldEndSession( false );
-if(zodiac){
+if(zodiac){/*
 return  fetch('http://widgets.fabulously40.com/horoscope.json?sign='+zodiac)
     .then(function(res) {
     // console.log(JSON.stringify(res.text()));
