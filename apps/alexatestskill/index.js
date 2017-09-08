@@ -40,15 +40,15 @@ app.intent('ZODIACINTENT',function(request,response) {
     var zodiac = request.slot('GetZodiacIntent');
 	var horoscope,sign,todaysh;
 		response.shouldEndSession( false );
-if(zodiac){/*
+if(zodiac){
 return  fetch('http://widgets.fabulously40.com/horoscope.json?sign='+zodiac)
     .then(function(res) {
     // console.log(JSON.stringify(res.text()));
        return res.text();
     }).then(function(body) {
-	console.log(JSON.stringify(body));
+	//console.log(JSON.stringify(body));
        horoscope=JSON.parse(body);
-	console.log(horoscope.horoscope.sign+"=>"+horoscope.horoscope.horoscope);
+	//console.log(horoscope.horoscope.sign+"=>"+horoscope.horoscope.horoscope);
 	sign=horoscope.horoscope.sign;
 todaysh=horoscope.horoscope.horoscope;
 response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();
