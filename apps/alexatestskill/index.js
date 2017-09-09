@@ -85,7 +85,7 @@ if(zodiac){
 console.log(zodiac);
 return callapi(zodiac, (err, result)=> {
 if(err){
-console.log(JSON.stringify(err));
+console.log(JSON.stringify(err)+"srinilll");
 response.say('Sorry! there was some problem, try after sometime');
 }
 else
@@ -93,7 +93,7 @@ else
  horoscope=JSON.parse(result);
  sign=horoscope.horoscope.sign;
  todaysh=horoscope.horoscope.horoscope;	
-console.log(JSON.stringify(horoscope));
+console.log(JSON.stringify(horoscope)+"sfd33444");
 response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();
 }
 });	
