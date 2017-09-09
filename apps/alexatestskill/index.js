@@ -73,12 +73,12 @@ var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
 response.say("srini");		
-waits.for(callapi(zodiac, function(err, result1){
+callapi(zodiac, function(err, result1){
  horoscope=result1;
  sign=horoscope.horoscope.sign;
  todaysh=horoscope.horoscope.horoscope;	
  response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();	
-}));	
+});	
 // return reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, resp, body) {
 // // console.log('error:', error); // Print the error if one occurred 
 // //   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
