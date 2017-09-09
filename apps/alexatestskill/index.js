@@ -5,7 +5,7 @@ var alexa = require( 'alexa-app' );
 var app = new alexa.app( 'test-skill' );
 var reqnew = require('request');
 var fetch = require('node-fetch');
-
+var waits=require('wait.for');
 app.launch( function( request, response ) {
 	response.say( 'Welcome to our daily horoscope. What would you like to know?' ).reprompt( 'Way to go. You got it to run. Bad ass.' ).shouldEndSession( false );
 } );
@@ -73,12 +73,12 @@ var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
 response.say("srini");		
-callapi(zodiac, function(err, result1){
+waits.launchFiber(callapi(zodiac, function(err, result1){
  horoscope=result1;
  sign=horoscope.horoscope.sign;
  todaysh=horoscope.horoscope.horoscope;	
-return response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();	
-});	
+ response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();	
+}));	
 // return reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, resp, body) {
 // // console.log('error:', error); // Print the error if one occurred 
 // //   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
