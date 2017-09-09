@@ -9,6 +9,47 @@ var fetch = require('node-fetch');
 app.launch( function( request, response ) {
 	response.say( 'Welcome to our daily horoscope. What would you like to know?' ).reprompt( 'Way to go. You got it to run. Bad ass.' ).shouldEndSession( false );
 } );
+let callapi=function(data, callback) {
+
+    var r;
+    var options = {};
+        options.url = "http://widgets.fabulously40.com/horoscope.json?sign="+data;
+        options.method = "GET";
+    requestnew(options, function(error, response, body) {
+
+         if (!error) {
+
+            if(response.statusCode == 200) {
+
+                try {
+
+                    if((typeof body) == "string") {
+
+                        var result = JSON.parse(body);
+
+                        r = result;
+                    } else {
+
+                        r = body;
+                    }
+
+                    // Call callback with no error, and result of request
+                    return callback(null, r);
+
+                } catch (e) {
+
+                    // Call callback with error
+                    return callback(e);
+                }
+            }
+        } else {
+
+            console.log("Error: " + error);
+            return callback(error);
+        }
+    });
+
+}
 
 
 app.error = function( exception, request, response ) {
@@ -36,12 +77,12 @@ app.intent('Thankyou',function(request,response) {
 response.say("Thanks have a nice day");	
  }
 );	
-app.intent('ZODIACINTENT',(request,response)=> {
+app.intent('ZODIACINTENT',function(request,response) {
 var zodiac = request.slot('GetZodiacIntent');
 var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
-return require('./horoscope')(zodiac, function(err, result) {
+return callapi(zodiac, =>(err, result) {
 if(err){
 response.say('Sorry! there was some problem, try after sometime');
 }
