@@ -15,7 +15,7 @@ let callapi=function(data, callback) {
     var options = {};
         options.url = "http://widgets.fabulously40.com/horoscope.json?sign="+data;
     reqnew(options, function(error, resps, body) {
-         console.log(JSON.stringify(body));
+         console.log(JSON.stringify(body)+JSON.stringify(error));
          if (!error) {
 
             if(resps.statusCode == 200) {
