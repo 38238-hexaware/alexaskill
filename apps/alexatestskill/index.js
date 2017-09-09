@@ -15,7 +15,7 @@ let callapi=function(data, callback) {
     var options = {};
         options.url = "http://widgets.fabulously40.com/horoscope.json?sign="+data;
         options.method = "GET";
-    requestnew(options, function(error, response, body) {
+    reqnew(options, function(error, response, body) {
 
          if (!error) {
 
@@ -82,8 +82,10 @@ var zodiac = request.slot('GetZodiacIntent');
 var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
+console.log(zodiac);
 return callapi(zodiac, =>(err, result) {
 if(err){
+console.log(JSON.stringify(err));
 response.say('Sorry! there was some problem, try after sometime');
 }
 else
