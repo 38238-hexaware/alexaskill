@@ -36,7 +36,7 @@ app.intent('Thankyou',function(request,response) {
 response.say("Thanks have a nice day");	
  }
 );	
-app.intent('ZODIACINTENT',function(request,response) {
+app.intent('ZODIACINTENT',(request,response)=> {
 var zodiac = request.slot('GetZodiacIntent');
 var horoscope,sign,todaysh;
 response.shouldEndSession( false );
