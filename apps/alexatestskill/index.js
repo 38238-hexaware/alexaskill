@@ -41,7 +41,7 @@ var zodiac = request.slot('GetZodiacIntent');
 var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
-reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, resp, body) {
+return reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, resp, body) {
 // console.log('error:', error); // Print the error if one occurred 
 //   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
 //   console.log('body:', body); // Print the HTML for the Google homepage. 
