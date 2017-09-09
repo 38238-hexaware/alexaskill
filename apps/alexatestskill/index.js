@@ -73,7 +73,7 @@ var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
 response.say("srini");		
-waits.launchFiber(callapi(zodiac, function(err, result1){
+waits.for(callapi(zodiac, function(err, result1){
  horoscope=result1;
  sign=horoscope.horoscope.sign;
  todaysh=horoscope.horoscope.horoscope;	
