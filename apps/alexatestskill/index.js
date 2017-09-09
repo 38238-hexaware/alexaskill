@@ -41,7 +41,7 @@ var zodiac = request.slot('GetZodiacIntent');
 var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
-require('./horoscope')(zodiac, function(err, result) {
+return require('./horoscope')(zodiac, function(err, result) {
 if(err){
 response.say('Sorry! there was some problem, try after sometime');
 }
