@@ -72,7 +72,6 @@ var zodiac = request.slot('GetZodiacIntent');
 var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
-response.say("srini");		
 callapi(zodiac, function(err, result1){
  horoscope=result1;
  sign=horoscope.horoscope.sign;
