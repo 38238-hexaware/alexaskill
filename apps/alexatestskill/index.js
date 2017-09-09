@@ -50,6 +50,7 @@ else
  horoscope=JSON.parse(result);
  sign=horoscope.horoscope.sign;
  todaysh=horoscope.horoscope.horoscope;	
+console.log(JSON.stringify(horoscope));
 response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();
 }
 });	
