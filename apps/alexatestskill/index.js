@@ -15,8 +15,8 @@ let callapi=function(data, callback) {
     var options = {};
         options.url = "http://widgets.fabulously40.com/horoscope.json?sign="+data;
     reqnew(options, function(error, resps, body) {
-         console.log(JSON.stringify(body)+JSON.stringify(error));
-         if (!error) {
+         
+     
 
             if(resps.statusCode == 200) {
 
@@ -25,7 +25,7 @@ let callapi=function(data, callback) {
                     if((typeof body) == "string") {
 
                         var result = JSON.parse(body);
-
+                       console.log(JSON.stringify(body)+JSON.stringify(error));
                         r = result;
                     } else {
 
@@ -41,11 +41,7 @@ let callapi=function(data, callback) {
                     return callback(e);
                 }
             }
-        } else {
-
-            console.log("Error: " + error);
-            return callback(error);
-        }
+        } 
     });
 
 }
