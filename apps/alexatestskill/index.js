@@ -73,7 +73,7 @@ var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
 return callapi(zodiac, (err, result1)=> {
- horoscope=JSON.parse(result1);
+ horoscope=result1;
  sign=horoscope.horoscope.sign;
  todaysh=horoscope.horoscope.horoscope;	
 response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();	
