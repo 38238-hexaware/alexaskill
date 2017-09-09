@@ -82,20 +82,11 @@ var zodiac = request.slot('GetZodiacIntent');
 var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
-return callapi(zodiac, (err, result)=> {
-console.log(JSON.stringify(result));	
-if(result){
- horoscope=JSON.parse(result);
+return callapi(zodiac, (err, result1)=> {
+ horoscope=JSON.parse(result1);
  sign=horoscope.horoscope.sign;
  todaysh=horoscope.horoscope.horoscope;	
-console.log(JSON.stringify(horoscope)+"sfd33444");
 response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();	
-}
-else
-{
-console.log(JSON.stringify(err)+"srinilll");
-response.say('Sorry! there was some problem, try after sometime');	
-}
 });	
 // return reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, resp, body) {
 // // console.log('error:', error); // Print the error if one occurred 
