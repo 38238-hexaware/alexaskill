@@ -14,12 +14,11 @@ let callapi=function(data, callback) {
     var r;
     var options = {};
         options.url = "http://widgets.fabulously40.com/horoscope.json?sign="+data;
-        options.method = "GET";
-    reqnew(options, function(error, response, body) {
+    reqnew(options, function(error, resps, body) {
 
          if (!error) {
 
-            if(response.statusCode == 200) {
+            if(resps.statusCode == 200) {
 
                 try {
 
