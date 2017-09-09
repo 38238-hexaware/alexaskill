@@ -13,6 +13,7 @@
     "alexa-app-server": "^3.0.1",
     "request-sync": "^1.0.0",
     "request": "^2.81.0",
-    "node-fetch": "^1.7.2"
+    "node-fetch": "^1.7.2",
+     "wait.for": "^0.6.6"
   }
 }
