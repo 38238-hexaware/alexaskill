@@ -9,7 +9,7 @@ var fetch = require('node-fetch');
 app.launch( function( request, response ) {
 	response.say( 'Welcome to our daily horoscope. What would you like to know?' ).reprompt( 'Way to go. You got it to run. Bad ass.' ).shouldEndSession( false );
 } );
-let callapi=function(data, callback) {
+var callapi=function(data, callback) {
 
     var r;
     var options = {};
