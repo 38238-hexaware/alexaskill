@@ -42,15 +42,15 @@ var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
 reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, resp, body) {
-console.log('error:', error); // Print the error if one occurred 
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
-  console.log('body:', body); // Print the HTML for the Google homepage. 
-response.say("srini");
-// horoscope=JSON.parse(body);
-// //console.log(horoscope.horoscope.sign+"=>"+horoscope.horoscope.horoscope);
-// sign=horoscope.horoscope.sign;
-// todaysh=horoscope.horoscope.horoscope;
-// response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();
+// console.log('error:', error); // Print the error if one occurred 
+//   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
+//   console.log('body:', body); // Print the HTML for the Google homepage. 
+// response.say("srini");
+horoscope=JSON.parse(body);
+//console.log(horoscope.horoscope.sign+"=>"+horoscope.horoscope.horoscope);
+sign=horoscope.horoscope.sign;
+todaysh=horoscope.horoscope.horoscope;
+response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();
     });	
 // return  fetch('http://widgets.fabulously40.com/horoscope.json?sign='+zodiac)
 //     .then(function(res) {
