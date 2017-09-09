@@ -13,14 +13,9 @@ let callapi=function(data, callback) {
 
     var r;
     var options = {};
-        options.url = "http://widgets.fabulously40.com/horoscope.json?sign="+data;
+    options.url = "http://widgets.fabulously40.com/horoscope.json?sign="+data;
     reqnew(options, function(error, resps, body) {
-         
-     
-
-            if(resps.statusCode == 200) {
-
-                try {
+              try {
 
                     if((typeof body) == "string") {
 
@@ -40,8 +35,8 @@ let callapi=function(data, callback) {
                     // Call callback with error
                     return callback(e);
                 }
-            }
-        } 
+            
+
     });
 
 }
