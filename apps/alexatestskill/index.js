@@ -82,8 +82,8 @@ var zodiac = request.slot('GetZodiacIntent');
 var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
-console.log(zodiac);
 return callapi(zodiac, (err, result)=> {
+console.log(JSON.stringify(result));	
 if(err){
 console.log(JSON.stringify(err)+"srinilll");
 response.say('Sorry! there was some problem, try after sometime');
