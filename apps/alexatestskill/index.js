@@ -28,7 +28,7 @@ return new Promise(function(resolve, reject){
                     }
 
                     // Call callback with no error, and result of request
-                    resolve(null, r);
+                    resolve(r);
 
                 } catch (e) {
 
