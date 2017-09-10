@@ -6,6 +6,7 @@ var app = new alexa.app( 'test-skill' );
 var reqnew = require('request');
 var fetch = require('node-fetch');
 var waits=require('wait.for');
+var Promise=require('promise');
 app.launch( function( request, response ) {
 	response.say( 'Welcome to our daily horoscope. What would you like to know?' ).reprompt( 'Way to go. You got it to run. Bad ass.' ).shouldEndSession( false );
 } );
