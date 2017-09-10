@@ -9,8 +9,8 @@ var waits=require('wait.for');
 app.launch( function( request, response ) {
 	response.say( 'Welcome to our daily horoscope. What would you like to know?' ).reprompt( 'Way to go. You got it to run. Bad ass.' ).shouldEndSession( false );
 } );
-var callapi=function(data, callback) {
-
+var callapi=function(data) {
+return new Promise(function(resolve, reject){
     var r;
     var options = {};
     options.url = "http://widgets.fabulously40.com/horoscope.json?sign="+data;
@@ -20,7 +20,6 @@ var callapi=function(data, callback) {
                     if((typeof body) == "string") {
 
                         var result = JSON.parse(body);
-                       console.log(JSON.stringify(body)+JSON.stringify(error));
                         r = result;
                     } else {
 
@@ -28,17 +27,17 @@ var callapi=function(data, callback) {
                     }
 
                     // Call callback with no error, and result of request
-                    return callback(null, r);
+                    resolve(null, r);
 
                 } catch (e) {
 
                     // Call callback with error
-                    return callback(e);
+                    reject(e);
                 }
             
 
     });
-
+});
 }
 
 
@@ -72,11 +71,13 @@ var zodiac = request.slot('GetZodiacIntent');
 var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
-callapi(zodiac, function(err, result1){
+callapi(zodiac).then(function(result1){
  horoscope=result1;
  sign=horoscope.horoscope.sign;
  todaysh=horoscope.horoscope.horoscope;	
  response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();	
+}).catch(function(err){
+response.say("There was some problem! Please try after some time. ThankYou!!!").shouldEndSession(true);
 });
 return false;
 // return reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, resp, body) {
