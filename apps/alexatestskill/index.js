@@ -10,36 +10,6 @@ var Promise=require('promise');
 app.launch( function( request, response ) {
 	response.say( 'Welcome to our daily horoscope. What would you like to know?' ).reprompt( 'Way to go. You got it to run. Bad ass.' ).shouldEndSession( false );
 } );
-var callapi=function(data) {
-return new Promise(function(resolve, reject){
-    var r;
-    var options = {};
-    options.url = "http://widgets.fabulously40.com/horoscope.json?sign="+data;
-    reqnew(options, (error, resps, body)=> {
-              try {
-
-                    if((typeof body) == "string") {
-
-                        var result = JSON.parse(body);
-                        r = result;
-                    } else {
-
-                        r = body;
-                    }
-
-                    // Call callback with no error, and result of request
-                    resolve(r);
-
-                } catch (e) {
-
-                    // Call callback with error
-                    reject(e);
-                }
-            
-
-    });
-});
-}
 
 
 app.error = function( exception, request, response ) {
@@ -72,17 +42,8 @@ var zodiac = request.slot('GetZodiacIntent');
 var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
-return callapi(zodiac).then(function(result1){
-console.log(JSON.stringify(result1));
- horoscope=result1;
- sign=horoscope.horoscope.sign;
- todaysh=horoscope.horoscope.horoscope;	
- response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();	
-}).catch(function(err){
-console.log(err);
-response.say("There was some problem! Please try after some time. ThankYou!!!").shouldEndSession(true);
-});
-// return reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, resp, body) {
+
+// reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, resp, body) {
 // // console.log('error:', error); // Print the error if one occurred 
 // //   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
 // //   console.log('body:', body); // Print the HTML for the Google homepage. 
