@@ -78,6 +78,7 @@ return callapi(zodiac).then(function(result1){
  todaysh=horoscope.horoscope.horoscope;	
  response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();	
 }).catch(function(err){
+console.log(err);
 response.say("There was some problem! Please try after some time. ThankYou!!!").shouldEndSession(true);
 });
 // return reqnew('http://widgets.fabulously40.com/horoscope.json?sign=capricorn', function (error, resp, body) {
