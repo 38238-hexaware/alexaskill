@@ -73,6 +73,7 @@ var horoscope,sign,todaysh;
 response.shouldEndSession( false );
 if(zodiac){
 return callapi(zodiac).then(function(result1){
+console.log(JSON.stringify(result1));
  horoscope=result1;
  sign=horoscope.horoscope.sign;
  todaysh=horoscope.horoscope.horoscope;	
