@@ -48,7 +48,7 @@ app.error = function( exception, request, response ) {
 	console.log(exception)
 	console.log(request);
 	console.log(response);	
-	response.say( 'Sorry an error occured ' + error.message);
+	response.say( `Sorry an error occured ${error.message}`);
 };
 
 app.intent('sayNumber',
@@ -62,7 +62,7 @@ app.intent('sayNumber',
   },
   function(request,response) {
     var number = request.slot('number');
-    response.say("You asked for the number "+number);
+    response.say(`You asked for the number ${number}`);
   }
 );
 app.intent('Thankyou',function(request,response) {
@@ -79,7 +79,7 @@ console.log(JSON.stringify(result1));
  horoscope=result1;
  sign=horoscope.horoscope.sign;
  todaysh=horoscope.horoscope.horoscope;	
- response.say("Your sign "+sign+" today predication fortells "+todaysh+". Do you like to know any other horoscope?").shouldEndSession( false ).send();	
+ response.say(`Your sign ${sign} today predication fortells ${todaysh}. Do you like to know any other horoscope?`).shouldEndSession( false ).send();	
 }).catch(function(err){
 console.log(err);
 response.say("There was some problem! Please try after some time. ThankYou!!!").shouldEndSession(true);
